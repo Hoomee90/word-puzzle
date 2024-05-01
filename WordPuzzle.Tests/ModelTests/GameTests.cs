@@ -58,5 +58,21 @@ namespace WordPuzzle.Tests
 			char[] guessedLetters = newGame.GuessedLetters;
 			CollectionAssert.AreEqual(guessedLetters, new char[word.Length]);
 		}
+		
+		[TestMethod]
+		public void Guess_ReturnsFalseOnFailedGuess_Bool()
+		{
+			Game newGame = new("witch");
+			bool result = newGame.Guess('x');
+			Assert.AreEqual(false, result);
+		}
+		
+		[TestMethod]
+		public void Guess_ReturnsTrueOnSuccessfulGuess_Bool()
+		{
+			Game newGame = new("witch");
+			bool result = newGame.Guess('w');
+			Assert.AreEqual(true, result);
+		}
 	}
 }

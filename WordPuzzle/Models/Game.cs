@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace WordPuzzle.Models
 {
@@ -15,6 +16,18 @@ namespace WordPuzzle.Models
 		{
 			Answer = word;
 			_guessedLetters = new char[word.Length];
+		}
+		
+		public bool Guess(char letter)
+		{
+			if (Answer.Contains(letter))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 }
