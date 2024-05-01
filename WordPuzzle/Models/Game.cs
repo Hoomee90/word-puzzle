@@ -1,7 +1,12 @@
 namespace WordPuzzle.Models
 {
-  public class Game
-  {
-    // Business Logic goes here.
-  }
+	public class Game
+	{
+		public string Answer { get; set; }
+		
+		public Game(string word)
+		{
+			Answer = word;
+		}
+	}
 }
