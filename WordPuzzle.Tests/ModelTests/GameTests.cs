@@ -1,12 +1,13 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WordPuzzle.Models;
 
 namespace WordPuzzle.Tests
 {
-  [TestClass]
-  public class GameTests
-  {
-    [TestMethod]
+	[TestClass]
+	public class GameTests
+	{
+		[TestMethod]
 		public void GameConstructor_CreateInstanceOfGame_Game()
 		{
 			Game newGame = new("witch");
@@ -30,5 +31,32 @@ namespace WordPuzzle.Tests
 			newGame.Answer = newWord;
 			Assert.AreEqual(newWord, newGame.Answer);
 		}
-  }
+		
+		[TestMethod]
+		public void GetGuessesLeft_ReturnsGuessesLeft_Int()
+		{
+			int guesses = 5;
+			Game newGame = new("witch");
+			int result = newGame.GuessesLeft;
+			Assert.AreEqual(guesses, result);
+		}
+		
+		[TestMethod]
+		public void SetGuessesLeft_SetsValueOfGuessesLeft_Void()
+		{
+			Game newGame = new("witch");
+			int newGuesses = 4;
+			newGame.GuessesLeft = newGuesses;
+			Assert.AreEqual(newGuesses, newGame.GuessesLeft);
+		}
+		
+		[TestMethod]
+		public void GetGuessedLetters_ReturnsGuessedLetters_Void()
+		{
+			string word = "witch";
+			Game newGame = new(word);
+			char[] guessedLetters = newGame.GuessedLetters;
+			CollectionAssert.AreEqual(guessedLetters, new char[word.Length]);
+		}
+	}
 }
