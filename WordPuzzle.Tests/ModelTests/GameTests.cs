@@ -51,12 +51,12 @@ namespace WordPuzzle.Tests
 		}
 		
 		[TestMethod]
-		public void GetGuessedLetters_ReturnsGuessedLetters_Void()
+		public void GetCorrectLetters_ReturnsCorrectLetters_Void()
 		{
 			string word = "witch";
 			Game newGame = new(word);
-			char[] guessedLetters = newGame.GuessedLetters;
-			CollectionAssert.AreEqual(guessedLetters, new char[word.Length]);
+			char[] correctLetters = newGame.CorrectLetters;
+			CollectionAssert.AreEqual(new char[word.Length], correctLetters);
 		}
 		
 		[TestMethod]
@@ -73,6 +73,19 @@ namespace WordPuzzle.Tests
 			Game newGame = new("witch");
 			bool result = newGame.Guess('w');
 			Assert.AreEqual(true, result);
+		}
+		
+		[TestMethod]
+		public void Guess_UpdatesCorrectLetters_Void()
+		{
+			char[] expected = new char[5];
+			expected[0] = 'w';
+			expected[3] = 'c';
+			Game newGame = new("witch");
+			newGame.Guess('w');
+			newGame.Guess('c');
+			char[] result = newGame.CorrectLetters;
+			CollectionAssert.AreEqual(expected, result);
 		}
 	}
 }
