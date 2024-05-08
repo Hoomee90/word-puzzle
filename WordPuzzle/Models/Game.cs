@@ -1,5 +1,4 @@
-using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace WordPuzzle.Models
 {
@@ -7,20 +6,18 @@ namespace WordPuzzle.Models
 	{
 		public string Answer { get; set; }
 		public int GuessesLeft { get; set; } = 5;
-		public char[] CorrectLetters 
-		{ 
-			get { return _correctLetters; }
-		}
-		private char[] _correctLetters;
+		public char[] CorrectLetters { get; }
+		public List<char> GuessedLetters { get; } = new();
+		
 		public Game(string word)
 		{
 			Answer = word;
-			_correctLetters = new char[word.Length];
+			CorrectLetters = new char[word.Length];
 		}
 		
 		public bool Guess(char letter)
 		{
-			// TODO: make guesses update CorrectLetters
+			GuessedLetters.Add(letter);
 			if (Answer.Contains(letter))
 			{
 				char[] answerChars = Answer.ToCharArray();
@@ -31,7 +28,6 @@ namespace WordPuzzle.Models
 						CorrectLetters[i] = answerChars[i];
 					}
 				}
-				
 				return true;
 			}
 			else

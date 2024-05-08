@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WordPuzzle.Models;
 
@@ -86,6 +87,16 @@ namespace WordPuzzle.Tests
 			newGame.Guess('c');
 			char[] result = newGame.CorrectLetters;
 			CollectionAssert.AreEqual(expected, result);
+		}
+		
+		[TestMethod]
+		public void GetGuessedLetters_ReturnsGuessedLetters_Int()
+		{
+			List<char> expected = new(new[]{'w', 'c'});
+			Game newGame = new("witch");
+			newGame.Guess('w');
+			newGame.Guess('c');
+			CollectionAssert.AreEqual(expected, newGame.GuessedLetters);
 		}
 	}
 }
