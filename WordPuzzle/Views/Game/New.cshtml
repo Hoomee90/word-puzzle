@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+<form action="/game" id="game-form" method="post" class="m-4 text-center">
+  <div class="row justify-content-evenly">
+    <div class="col-auto mt-3">
+      <div class="card">
+        <h2 class="card-header">Normal Mode</h2>
+        <div class="card-body">
+          <p class="card-text">Six lives. Regular game.</p>
+          <input type="radio" class="btn-check" id="normal" name="difficulty" value="normal" checked>
+          <label class="btn btn-outline-success" for="normal">Normal</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto mt-3">
+      <div class="card">
+        <h2 class="card-header">Hard Mode</h2>
+        <div class="card-body">
+          <p class="card-text">Five lives. May or may not be literally impossible.</p>
+          <input type="radio" class="btn-check" id="hard" name="difficulty" value="hard">
+          <label class="btn btn-outline-danger" for="hard">Hard</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-lg btn-warning m-3">New Game</button>
+</form>
