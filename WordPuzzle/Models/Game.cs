@@ -5,7 +5,7 @@ namespace WordPuzzle.Models
 	public class Game
 	{
 		public string Answer { get; set; }
-		public int GuessesLeft { get; set; } = 5;
+		public int GuessesLeft { get; set; } = 6;
 		public char[] CorrectLetters { get; }
 		public List<char> GuessedLetters { get; } = new();
 		
@@ -15,7 +15,7 @@ namespace WordPuzzle.Models
 			CorrectLetters = new char[word.Length];
 		}
 		
-		public bool Guess(char letter)
+		public virtual bool Guess(char letter)
 		{
 			GuessedLetters.Add(letter);
 			if (Answer.Contains(letter))
@@ -32,6 +32,7 @@ namespace WordPuzzle.Models
 			}
 			else
 			{
+				GuessesLeft--;
 				return false;
 			}
 		}

@@ -36,7 +36,7 @@ namespace WordPuzzle.Tests
 		[TestMethod]
 		public void GetGuessesLeft_ReturnsGuessesLeft_Int()
 		{
-			int guesses = 5;
+			int guesses = 6;
 			Game newGame = new("witch");
 			int result = newGame.GuessesLeft;
 			Assert.AreEqual(guesses, result);
@@ -97,6 +97,17 @@ namespace WordPuzzle.Tests
 			newGame.Guess('w');
 			newGame.Guess('c');
 			CollectionAssert.AreEqual(expected, newGame.GuessedLetters);
+		}
+		
+		[TestMethod]
+		public void Guess_UpdatesGuessesLeft_Void()
+		{
+			int expected = 4;
+			Game newGame = new("witch");
+			newGame.Guess('m');
+			newGame.Guess('a');
+			newGame.Guess('i');
+			Assert.AreEqual(expected, newGame.GuessesLeft);
 		}
 	}
 }
