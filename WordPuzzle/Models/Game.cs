@@ -2,40 +2,14 @@ using System.Collections.Generic;
 
 namespace WordPuzzle.Models
 {
-	public class Game
+	public abstract class Game
 	{
-		private string _answer;
-		public int GuessesLeft { get; set; } = 6;
-		public char[] CorrectLetters { get; }
+		internal string _answer;
+		public int GuessesLeft { get; set; }
+		public char[] CorrectLetters { get; set; }
 		public List<char> GuessedLetters { get; } = new();
 		
-		public Game(string word)
-		{
-			_answer = word;
-			CorrectLetters = new char[word.Length];
-		}
-		
-		public virtual bool Guess(char letter)
-		{
-			GuessedLetters.Add(letter);
-			if (_answer.Contains(letter))
-			{
-				char[] answerChars = _answer.ToCharArray();
-				for (int i = 0; i < answerChars.Length; i++)
-				{
-					if (answerChars[i] == letter)
-					{
-						CorrectLetters[i] = answerChars[i];
-					}
-				}
-				return true;
-			}
-			else
-			{
-				GuessesLeft--;
-				return false;
-			}
-		}
+		public abstract bool Guess(char letter);
 		
 		public virtual string GetAnswer()
 		{

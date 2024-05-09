@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WordPuzzle.Models;
@@ -6,21 +5,21 @@ using WordPuzzle.Models;
 namespace WordPuzzle.Tests
 {
 	[TestClass]
-	public class GameTests
+	public class EasyGameTests
 	{
 		[TestMethod]
-		public void GameConstructor_CreateInstanceOfGame_Game()
+		public void EasyGameConstructor_CreateInstanceOfEasyGame_EasyGame()
 		{
-			Game newGame = new("witch");
-			Assert.AreEqual(typeof(Game), newGame.GetType());
+			EasyGame newEasyGame = new("witch");
+			Assert.AreEqual(typeof(EasyGame), newEasyGame.GetType());
 		}
 		
 		[TestMethod]
 		public void GetAnswer_ReturnsAnswer_String()
 		{
 			string word = "witch";
-			Game newGame = new(word);
-			string result = newGame.GetAnswer();
+			EasyGame newEasyGame = new(word);
+			string result = newEasyGame.GetAnswer();
 			Assert.AreEqual(word, result);
 		}
 		
@@ -28,42 +27,42 @@ namespace WordPuzzle.Tests
 		public void GetGuessesLeft_ReturnsGuessesLeft_Int()
 		{
 			int guesses = 6;
-			Game newGame = new("witch");
-			int result = newGame.GuessesLeft;
+			EasyGame newEasyGame = new("witch");
+			int result = newEasyGame.GuessesLeft;
 			Assert.AreEqual(guesses, result);
 		}
 		
 		[TestMethod]
 		public void SetGuessesLeft_SetsValueOfGuessesLeft_Void()
 		{
-			Game newGame = new("witch");
+			EasyGame newEasyGame = new("witch");
 			int newGuesses = 4;
-			newGame.GuessesLeft = newGuesses;
-			Assert.AreEqual(newGuesses, newGame.GuessesLeft);
+			newEasyGame.GuessesLeft = newGuesses;
+			Assert.AreEqual(newGuesses, newEasyGame.GuessesLeft);
 		}
 		
 		[TestMethod]
 		public void GetCorrectLetters_ReturnsCorrectLetters_Void()
 		{
 			string word = "witch";
-			Game newGame = new(word);
-			char[] correctLetters = newGame.CorrectLetters;
+			EasyGame newEasyGame = new(word);
+			char[] correctLetters = newEasyGame.CorrectLetters;
 			CollectionAssert.AreEqual(new char[word.Length], correctLetters);
 		}
 		
 		[TestMethod]
 		public void Guess_ReturnsFalseOnFailedGuess_Bool()
 		{
-			Game newGame = new("witch");
-			bool result = newGame.Guess('x');
+			EasyGame newEasyGame = new("witch");
+			bool result = newEasyGame.Guess('x');
 			Assert.AreEqual(false, result);
 		}
 		
 		[TestMethod]
 		public void Guess_ReturnsTrueOnSuccessfulGuess_Bool()
 		{
-			Game newGame = new("witch");
-			bool result = newGame.Guess('w');
+			EasyGame newEasyGame = new("witch");
+			bool result = newEasyGame.Guess('w');
 			Assert.AreEqual(true, result);
 		}
 		
@@ -73,10 +72,10 @@ namespace WordPuzzle.Tests
 			char[] expected = new char[5];
 			expected[0] = 'w';
 			expected[3] = 'c';
-			Game newGame = new("witch");
-			newGame.Guess('w');
-			newGame.Guess('c');
-			char[] result = newGame.CorrectLetters;
+			EasyGame newEasyGame = new("witch");
+			newEasyGame.Guess('w');
+			newEasyGame.Guess('c');
+			char[] result = newEasyGame.CorrectLetters;
 			CollectionAssert.AreEqual(expected, result);
 		}
 		
@@ -84,21 +83,21 @@ namespace WordPuzzle.Tests
 		public void GetGuessedLetters_ReturnsGuessedLetters_Int()
 		{
 			List<char> expected = new(new[]{'w', 'c'});
-			Game newGame = new("witch");
-			newGame.Guess('w');
-			newGame.Guess('c');
-			CollectionAssert.AreEqual(expected, newGame.GuessedLetters);
+			EasyGame newEasyGame = new("witch");
+			newEasyGame.Guess('w');
+			newEasyGame.Guess('c');
+			CollectionAssert.AreEqual(expected, newEasyGame.GuessedLetters);
 		}
 		
 		[TestMethod]
 		public void Guess_UpdatesGuessesLeft_Void()
 		{
 			int expected = 4;
-			Game newGame = new("witch");
-			newGame.Guess('m');
-			newGame.Guess('a');
-			newGame.Guess('i');
-			Assert.AreEqual(expected, newGame.GuessesLeft);
+			EasyGame newEasyGame = new("witch");
+			newEasyGame.Guess('m');
+			newEasyGame.Guess('a');
+			newEasyGame.Guess('i');
+			Assert.AreEqual(expected, newEasyGame.GuessesLeft);
 		}
 	}
 }

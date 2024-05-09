@@ -6,7 +6,7 @@ namespace WordPuzzle.Models
 	{
 		public string[] WordOptions { get; } = { "banana", "excess", "giggit", "voodoo", "pullup", "myrrhy" };
 		
-		public ImpossibleGame() : base("")
+		public ImpossibleGame()
 		{
 			GuessesLeft = 5;
 		}
