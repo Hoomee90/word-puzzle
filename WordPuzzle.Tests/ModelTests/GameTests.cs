@@ -20,17 +20,8 @@ namespace WordPuzzle.Tests
 		{
 			string word = "witch";
 			Game newGame = new(word);
-			string result = newGame.Answer;
+			string result = newGame.GetAnswer();
 			Assert.AreEqual(word, result);
-		}
-		
-		[TestMethod]
-		public void SetAnswer_SetsValueOfAnswer_Void()
-		{
-			Game newGame = new("witch");
-			string newWord = "hope";
-			newGame.Answer = newWord;
-			Assert.AreEqual(newWord, newGame.Answer);
 		}
 		
 		[TestMethod]
@@ -108,14 +99,6 @@ namespace WordPuzzle.Tests
 			newGame.Guess('a');
 			newGame.Guess('i');
 			Assert.AreEqual(expected, newGame.GuessesLeft);
-		}
-		
-		[TestMethod]
-		public void RevealAnswer_ReturnsCharArrayOfAnswer_CharArray()
-		{
-			Game newGame = new("witch");
-			char[] expected = newGame.Answer.ToCharArray();
-			Assert.AreEqual(expected, newGame.RevealAnswer());
 		}
 	}
 }

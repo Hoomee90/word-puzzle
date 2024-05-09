@@ -4,23 +4,23 @@ namespace WordPuzzle.Models
 {
 	public class Game
 	{
-		public string Answer { get; set; }
+		private string _answer;
 		public int GuessesLeft { get; set; } = 6;
 		public char[] CorrectLetters { get; }
 		public List<char> GuessedLetters { get; } = new();
 		
 		public Game(string word)
 		{
-			Answer = word;
+			_answer = word;
 			CorrectLetters = new char[word.Length];
 		}
 		
 		public virtual bool Guess(char letter)
 		{
 			GuessedLetters.Add(letter);
-			if (Answer.Contains(letter))
+			if (_answer.Contains(letter))
 			{
-				char[] answerChars = Answer.ToCharArray();
+				char[] answerChars = _answer.ToCharArray();
 				for (int i = 0; i < answerChars.Length; i++)
 				{
 					if (answerChars[i] == letter)
@@ -37,9 +37,9 @@ namespace WordPuzzle.Models
 			}
 		}
 		
-		public virtual char[] RevealAnswer()
+		public virtual string GetAnswer()
 		{
-			return Answer.ToCharArray();
+			return _answer;
 		}
 	}
 }
