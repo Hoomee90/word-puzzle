@@ -109,5 +109,13 @@ namespace WordPuzzle.Tests
 			newGame.Guess('i');
 			Assert.AreEqual(expected, newGame.GuessesLeft);
 		}
+		
+		[TestMethod]
+		public void RevealAnswer_ReturnsCharArrayOfAnswer_CharArray()
+		{
+			Game newGame = new("witch");
+			char[] expected = newGame.Answer.ToCharArray();
+			Assert.AreEqual(expected, newGame.RevealAnswer());
+		}
 	}
 }

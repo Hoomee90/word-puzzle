@@ -36,5 +36,10 @@ namespace WordPuzzle.Models
 				return false;
 			}
 		}
+		
+		public virtual char[] RevealAnswer()
+		{
+			return Answer.ToCharArray();
+		}
 	}
 }
