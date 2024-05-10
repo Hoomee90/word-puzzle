@@ -9,6 +9,7 @@ namespace WordPuzzle.Models
 		{
 			_answer = word;
 			CorrectLetters = new char[word.Length];
+			Array.Fill(CorrectLetters, '_');
 			GuessesLeft = 6;
 		}
 		

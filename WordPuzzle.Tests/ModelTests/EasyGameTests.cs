@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WordPuzzle.Models;
@@ -45,9 +46,11 @@ namespace WordPuzzle.Tests
 		public void GetCorrectLetters_ReturnsCorrectLetters_Void()
 		{
 			string word = "witch";
+			char[] expected = new char[word.Length];
+			Array.Fill(expected, '_');
 			EasyGame newEasyGame = new(word);
 			char[] correctLetters = newEasyGame.CorrectLetters;
-			CollectionAssert.AreEqual(new char[word.Length], correctLetters);
+			CollectionAssert.AreEqual(expected, correctLetters);
 		}
 		
 		[TestMethod]
@@ -70,6 +73,7 @@ namespace WordPuzzle.Tests
 		public void Guess_UpdatesCorrectLetters_Void()
 		{
 			char[] expected = new char[5];
+			Array.Fill(expected, '_');
 			expected[0] = 'w';
 			expected[3] = 'c';
 			EasyGame newEasyGame = new("witch");
