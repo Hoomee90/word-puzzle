@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WordPuzzle.Models;
 
 namespace WordPuzzle.Controllers
 {
@@ -18,8 +19,16 @@ namespace WordPuzzle.Controllers
 		}
 		
 		[HttpPost("/game")]
-		public ActionResult Create(string word)
+		public ActionResult Create(string difficulty)
 		{
+			if (difficulty == "hard")
+			{
+				ImpossibleGame _ = new();
+			}
+			else
+			{
+				EasyGame _ = new("test");
+			}
 			return RedirectToAction("Index");
 		}
 	}

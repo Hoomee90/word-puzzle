@@ -4,6 +4,7 @@ namespace WordPuzzle.Models
 {
 	public abstract class Game
 	{
+		public static Game currentGame { get; set; }
 		internal string _answer;
 		public int GuessesLeft { get; set; }
 		public char[] CorrectLetters { get; set; }

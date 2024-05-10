@@ -10,6 +10,7 @@ namespace WordPuzzle.Models
 			_answer = word;
 			CorrectLetters = new char[word.Length];
 			GuessesLeft = 6;
+			currentGame = this;
 		}
 		
 		public override bool Guess(char letter)
