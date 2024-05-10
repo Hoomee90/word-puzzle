@@ -10,6 +10,10 @@ namespace WordPuzzle.Models
 		public char[] CorrectLetters { get; set; }
 		public List<char> GuessedLetters { get; } = new();
 		
+		public Game()
+		{
+			currentGame = this;
+		}
 		public abstract bool Guess(char letter);
 		
 		public virtual string GetAnswer()

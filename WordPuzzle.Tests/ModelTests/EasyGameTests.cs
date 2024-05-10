@@ -99,5 +99,12 @@ namespace WordPuzzle.Tests
 			newEasyGame.Guess('i');
 			Assert.AreEqual(expected, newEasyGame.GuessesLeft);
 		}
+		
+		[TestMethod]
+		public void CurrentGame_UpdatesGamePropertyToCurrentGame_EasyGame()
+		{
+			EasyGame newGame = new("witch");
+			Assert.AreEqual(newGame, Game.currentGame);
+		}
 	}
 }

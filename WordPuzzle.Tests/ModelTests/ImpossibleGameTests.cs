@@ -18,5 +18,12 @@ namespace WordPuzzle.Tests
 			newGame.Guess('u');
 			Assert.AreEqual(expected, newGame.GetAnswer());
 		}
+		
+		[TestMethod]
+		public void CurrentGame_UpdatesGamePropertyToCurrentGame_ImpossibleGame()
+		{
+			ImpossibleGame newGame = new();
+			Assert.AreEqual(newGame, Game.currentGame);
+		}
 	}
 }

@@ -9,7 +9,8 @@ namespace WordPuzzle.Controllers
 		[HttpGet("/game")]
 		public ActionResult Index()
 		{
-			return View();
+			Game game = Game.currentGame;
+			return View(game);
 		}
 		
 		[HttpGet("/game/new")]

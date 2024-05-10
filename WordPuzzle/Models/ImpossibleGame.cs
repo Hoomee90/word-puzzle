@@ -9,7 +9,6 @@ namespace WordPuzzle.Models
 		public ImpossibleGame()
 		{
 			GuessesLeft = 5;
-			currentGame = this;
 		}
 		
 		public override bool Guess(char letter)
