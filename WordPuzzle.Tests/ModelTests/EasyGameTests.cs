@@ -108,7 +108,7 @@ namespace WordPuzzle.Tests
 		public void CurrentGame_UpdatesGamePropertyToCurrentGame_EasyGame()
 		{
 			EasyGame newGame = new("witch");
-			Assert.AreEqual(newGame, Game.currentGame);
+			Assert.AreEqual(newGame, Game.CurrentGame);
 		}
 	}
 }

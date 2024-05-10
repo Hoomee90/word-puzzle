@@ -4,7 +4,7 @@ namespace WordPuzzle.Models
 {
 	public abstract class Game
 	{
-		public static Game currentGame { get; set; }
+		public static Game CurrentGame { get; set; }
 		internal string _answer;
 		public int GuessesLeft { get; set; }
 		public char[] CorrectLetters { get; set; }
@@ -12,7 +12,7 @@ namespace WordPuzzle.Models
 		
 		public Game()
 		{
-			currentGame = this;
+			CurrentGame = this;
 		}
 		public abstract bool Guess(char letter);
 		

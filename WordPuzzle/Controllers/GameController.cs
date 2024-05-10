@@ -9,7 +9,7 @@ namespace WordPuzzle.Controllers
 		[HttpGet("/game")]
 		public ActionResult Index()
 		{
-			Game game = Game.currentGame;
+			Game game = Game.CurrentGame;
 			return View(game);
 		}
 		
@@ -28,8 +28,11 @@ namespace WordPuzzle.Controllers
 			}
 			else
 			{
-				EasyGame _ = new("test");
+				EasyGame _ = new("curses");
 			}
+			Game.CurrentGame.Guess('u');
+			Game.CurrentGame.Guess('z');
+			Game.CurrentGame.Guess('a');
 			return RedirectToAction("Index");
 		}
 	}

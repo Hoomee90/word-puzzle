@@ -23,7 +23,7 @@ namespace WordPuzzle.Tests
 		public void CurrentGame_UpdatesGamePropertyToCurrentGame_ImpossibleGame()
 		{
 			ImpossibleGame newGame = new();
-			Assert.AreEqual(newGame, Game.currentGame);
+			Assert.AreEqual(newGame, Game.CurrentGame);
 		}
 	}
 }
