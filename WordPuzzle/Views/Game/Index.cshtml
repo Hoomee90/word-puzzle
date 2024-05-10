@@ -3,9 +3,31 @@
 }
 
 @using WordPuzzle.Models;
-<div class="card mt-4">
-  <h1 class="card-header text-center">The Game</h1>
+<div class="card mt-4 text-center">
+  <h1 class="card-header">The Game</h1>
   <div class="card-body">
-    <p class="card-text">@Model.GuessedLetters</p>
+    <ul class="list-group list-group-horizontal justify-content-center">
+      @foreach (char letter in Model.CorrectLetters)
+      {
+        <li class="list-group-item card-text"><h3>@letter</h3></li>
+      }
+    </ul>
+    <div class="d-flex justify-content-evenly align-items-end mt-3">
+      <div class="card">
+        <p class="card-header">Guessed Letters</p>
+        <div class="row row-cols-5 g-2 card-body pt-2">
+          @foreach (char letter in Model.GuessedLetters)
+          {
+            <div class="col">
+              <p class="card-text border rounded">@letter</p>
+            </div>
+          }
+        </div>
+      </div>
+      <a class="btn btn-primary" role="button" href="/game/guess">Guess</a>
+      <div class="card">
+        <p class="card-header border-bottom-0">Guesses Left: @Model.GuessesLeft</p>
+      </div>
+    </div>
   </div>
 </div>
