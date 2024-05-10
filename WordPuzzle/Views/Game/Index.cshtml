@@ -15,14 +15,17 @@
     <div class="d-flex justify-content-evenly align-items-end mt-3">
       <div class="card">
         <p class="card-header">Guessed Letters</p>
-        <div class="row row-cols-5 g-2 card-body pt-2">
-          @foreach (char letter in Model.GuessedLetters)
-          {
-            <div class="col">
-              <p class="card-text border rounded">@letter</p>
-            </div>
-          }
-        </div>
+        @if (Model.GuessedLetters.Count != 0)
+        {
+          <div class="row row-cols-5 g-2 card-body pt-2">
+            @foreach (char letter in Model.GuessedLetters)
+            {
+              <div class="col">
+                <p class="card-text border rounded">@letter</p>
+              </div>
+            }
+          </div>
+        }
       </div>
       <a class="btn btn-primary" role="button" href="/game/guess">Guess</a>
       <div class="card">

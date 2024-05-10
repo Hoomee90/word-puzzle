@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using WordPuzzle.Models;
+<form action="/game" id="guess-form" method="post" class="m-4 mb-0 text-center">
+  <div class="btn-group row row-cols-6 " role="group">
+    @foreach(char letter in "abcdefghijklmnopqrstuvwxyz".ToCharArray())
+    {
+      if (Model.GuessedLetters.Contains(letter))
+      {
+        <input type="radio" class="btn-check" id="@letter" name="guess" disabled required>
+      }
+      else
+      {
+        <input type="radio" class="btn-check" id="@letter" name="guess" required>
+      }
+      <label class="btn btn-secondary rounded-0 border border-dark border-opacity-50 border-bottom-0" for="@letter">@letter</label>
+    }
+    <div class="w-100 border-secondary border-top"></div>
+  </div>
+  <button type="submit" class="btn btn btn-outline-success m-2">Guess</button>
+</form>
