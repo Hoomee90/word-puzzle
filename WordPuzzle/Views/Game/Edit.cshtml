@@ -3,7 +3,7 @@
 }
 
 @using WordPuzzle.Models;
-<form action="/game" id="guess-form" method="post" class="m-4 mb-0 text-center">
+<form action="/game/guess" id="guess-form" method="post" class="m-4 mb-0 text-center">
   <div class="btn-group row row-cols-6 " role="group">
     @foreach(char letter in "abcdefghijklmnopqrstuvwxyz".ToCharArray())
     {
@@ -13,7 +13,7 @@
       }
       else
       {
-        <input type="radio" class="btn-check" id="@letter" name="guess" required>
+        <input type="radio" class="btn-check" id="@letter" name="guess" value="@letter" required>
       }
       <label class="btn btn-secondary rounded-0 border border-dark border-opacity-50 border-bottom-0" for="@letter">@letter</label>
     }

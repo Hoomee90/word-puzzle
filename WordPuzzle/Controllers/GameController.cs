@@ -30,17 +30,7 @@ namespace WordPuzzle.Controllers
 			{
 				EasyGame _ = new("curses");
 			}
-			Game.CurrentGame.Guess('u');
-			Game.CurrentGame.Guess('z');
-			Game.CurrentGame.Guess('a');
-			Game.CurrentGame.Guess('s');
-			Game.CurrentGame.Guess('x');
-			Game.CurrentGame.Guess('y');
-			Game.CurrentGame.Guess('r');
-			Game.CurrentGame.Guess('b');
-			Game.CurrentGame.Guess('t');
 			return RedirectToAction("Index");
-			
 		}
 	
 		[HttpGet("/game/guess")]
@@ -50,11 +40,11 @@ namespace WordPuzzle.Controllers
 			return View(game);
 		}
 		
-		// TODO: make this work
-		// public ActionResult Update(string guess)
-		// {
-		// 	Game.CurrentGame.Guess(char.Parse(guess));
-		// 	return RedirectToAction("Index");
-		// }
+		[HttpPost("/game/guess")]
+		public ActionResult Update(string guess)
+		{
+			Game.CurrentGame.Guess(char.Parse(guess));
+			return RedirectToAction("Index");
+		}
 	}
 }
