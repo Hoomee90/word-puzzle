@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WordPuzzle.Models;
 
@@ -43,13 +45,13 @@ namespace WordPuzzle.Controllers
 		[HttpPost("/game/guess")]
 		public ActionResult Update(string guess)
 		{
-			
 			Game.CurrentGame.Guess(char.Parse(guess));
+			
 			if (Game.CurrentGame.GuessesLeft < 1)
 			{
 				return RedirectToAction("Lose");
 			}
-			else if (Game.CurrentGame.CorrectLetters.ToString() == Game.CurrentGame.GetAnswer())
+			if (!Game.CurrentGame.CorrectLetters.Contains('_'))
 			{
 				return RedirectToAction("Win");
 			}
