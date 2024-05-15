@@ -7,7 +7,7 @@ namespace WordPuzzle.Tests
 	public class ImpossibleGameTests
 	{
 		[TestMethod]
-		public void RevealAnswer_ReturnsWordOptionNotGuessed_String()
+		public void RevealAnswer_ReturnsWordOptionNotGuessed_CharArray()
 		{
 			string expected = "banana";
 			ImpossibleGame newGame = new();
@@ -16,7 +16,7 @@ namespace WordPuzzle.Tests
 			newGame.Guess('i');
 			newGame.Guess('o');
 			newGame.Guess('u');
-			Assert.AreEqual(expected, newGame.GetAnswer());
+			CollectionAssert.AreEqual(expected.ToCharArray(), newGame.GetAnswer());
 		}
 		
 		[TestMethod]

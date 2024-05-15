@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace WordPuzzle.Models
 {
@@ -7,7 +8,7 @@ namespace WordPuzzle.Models
 		
 		public EasyGame(string word)
 		{
-			_answer = word;
+			_answer = word.ToCharArray();
 			CorrectLetters = new char[word.Length];
 			Array.Fill(CorrectLetters, '_');
 			GuessesLeft = 6;
@@ -18,7 +19,7 @@ namespace WordPuzzle.Models
 			GuessedLetters.Add(letter);
 			if (_answer.Contains(letter))
 			{
-				char[] answerChars = _answer.ToCharArray();
+				char[] answerChars = _answer;
 				for (int i = 0; i < answerChars.Length; i++)
 				{
 					if (answerChars[i] == letter)

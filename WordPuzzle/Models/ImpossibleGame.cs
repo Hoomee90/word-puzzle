@@ -18,9 +18,9 @@ namespace WordPuzzle.Models
 			return false;
 		}
 		
-		public override string GetAnswer()
+		public override char[] GetAnswer()
 		{
-			return Array.Find(WordOptions, el => !GuessedLetters.Exists(ch => el.Contains(ch)));
+			return Array.Find(WordOptions, el => !GuessedLetters.Exists(ch => el.Contains(ch))).ToCharArray();
 		}
 	}
 }

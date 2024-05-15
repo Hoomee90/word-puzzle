@@ -16,12 +16,12 @@ namespace WordPuzzle.Tests
 		}
 		
 		[TestMethod]
-		public void GetAnswer_ReturnsAnswer_String()
+		public void GetAnswer_ReturnsAnswer_CharArray()
 		{
 			string word = "witch";
 			EasyGame newEasyGame = new(word);
-			string result = newEasyGame.GetAnswer();
-			Assert.AreEqual(word, result);
+			char[] result = newEasyGame.GetAnswer();
+			CollectionAssert.AreEqual(word.ToCharArray(), result);
 		}
 		
 		[TestMethod]
