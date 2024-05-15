@@ -43,8 +43,31 @@ namespace WordPuzzle.Controllers
 		[HttpPost("/game/guess")]
 		public ActionResult Update(string guess)
 		{
+			
 			Game.CurrentGame.Guess(char.Parse(guess));
+			if (Game.CurrentGame.GuessesLeft < 1)
+			{
+				return RedirectToAction("Lose");
+			}
+			else if (Game.CurrentGame.CorrectLetters.ToString() == Game.CurrentGame.GetAnswer())
+			{
+				return RedirectToAction("Win");
+			}
 			return RedirectToAction("Index");
+		}
+		
+		[HttpGet("/game/victory")]
+		public ActionResult Win()
+		{
+			Game game = Game.CurrentGame;
+			return View(game);
+		}
+		
+		[HttpGet("/game/defeat")]
+		public ActionResult Lose()
+		{
+			Game game = Game.CurrentGame;
+			return View(game);
 		}
 	}
 }
