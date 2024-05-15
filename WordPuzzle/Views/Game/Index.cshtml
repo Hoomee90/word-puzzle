@@ -7,21 +7,10 @@
   <h1 class="card-header">The Game</h1>
   <div class="card-body">
     <ul class="list-group list-group-horizontal justify-content-center">
-      @if (Model.CorrectLetters != null)
+      @foreach (char letter in Model.CorrectLetters)
       {
-        @foreach (char letter in Model.CorrectLetters)
-        {
-          <li class="list-group-item card-text"><h3>@letter</h3></li>
-        }
+        <li class="list-group-item card-text"><h3>@letter</h3></li>
       }
-      else
-      {
-        @for (int i = 0; i < 6; i++)
-        {
-          <li class="list-group-item card-text"><h3>_</h3></li>
-        }
-      }
-      
     </ul>
     <div class="d-flex justify-content-evenly align-items-end mt-3">
       <div class="card">

@@ -9,6 +9,8 @@ namespace WordPuzzle.Models
 		public ImpossibleGame()
 		{
 			GuessesLeft = 5;
+			CorrectLetters = new char[6];
+			Array.Fill(CorrectLetters, '_');
 		}
 		
 		public override bool Guess(char letter)
