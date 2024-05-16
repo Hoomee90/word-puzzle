@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WordPuzzle.Models;
 
@@ -22,7 +23,7 @@ namespace WordPuzzle.Controllers
 		}
 		
 		[HttpPost("/game")]
-		public ActionResult Create(string difficulty)
+		public async Task<ActionResult> Create(string difficulty)
 		{
 			if (difficulty == "hard")
 			{
@@ -30,7 +31,8 @@ namespace WordPuzzle.Controllers
 			}
 			else
 			{
-				EasyGame _ = new("curses");
+				RandomWordHelper wordHelper = new();
+				EasyGame _ = new(await wordHelper.GetWordAsync());
 			}
 			return RedirectToAction("Index");
 		}

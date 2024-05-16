@@ -9,7 +9,7 @@ namespace WordPuzzle.Models
 		public EasyGame(string word)
 		{
 			_answer = word.ToCharArray();
-			CorrectLetters = new char[word.Length];
+			CorrectLetters = new char[_answer.Length];
 			Array.Fill(CorrectLetters, '_');
 			GuessesLeft = 6;
 		}
