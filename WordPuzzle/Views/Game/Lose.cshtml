@@ -1,3 +1,9 @@
 @{
   Layout = "_Layout";
 }
+
+@using WordPuzzle.Models;
+<div class="text-center text-bg-danger card">
+  <h1 class="card-header">You Lose</h1>
+  @await Html.PartialAsync("_EndCard")
+</div>
