@@ -31,8 +31,7 @@ namespace WordPuzzle.Controllers
 			}
 			else
 			{
-				RandomWordHelper wordHelper = new();
-				EasyGame _ = new(await wordHelper.GetWordAsync());
+				EasyGame _ = new(await RandomWordHelper.GetWordAsync());
 			}
 			return RedirectToAction("Index");
 		}

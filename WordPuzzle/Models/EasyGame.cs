@@ -11,7 +11,7 @@ namespace WordPuzzle.Models
 			_answer = word.ToCharArray();
 			CorrectLetters = new char[_answer.Length];
 			Array.Fill(CorrectLetters, '_');
-			GuessesLeft = 6;
+			GuessesLeft = 8;
 		}
 		
 		public override bool Guess(char letter)
