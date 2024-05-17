@@ -3,23 +3,23 @@
 }
 
 <form action="/game" id="game-form" method="post" class="m-4 text-center">
-  <div class="row justify-content-evenly">
-    <div class="col-auto">
+  <div class="row row-cols-2 justify-content-center align-items-center">
+    <div class="col">
       <div class="card">
         <h2 class="card-header">Normal Mode</h2>
         <div class="card-body">
           <p class="card-text">Eight lives. Regular game.</p>
-          <input type="radio" class="btn-check" id="normal" name="difficulty" value="normal" checked>
+          <input type="radio" class="btn-check" id="normal" name="difficulty" value="normal" required>
           <label class="btn btn-outline-success" for="normal">Normal</label>
         </div>
       </div>
     </div>
-    <div class="col-auto">
+    <div class="col">
       <div class="card">
         <h2 class="card-header">Hard Mode</h2>
         <div class="card-body">
           <p class="card-text">Five lives. May or may not be literally impossible.</p>
-          <input type="radio" class="btn-check" id="hard" name="difficulty" value="hard">
+          <input type="radio" class="btn-check" id="hard" name="difficulty" value="hard" required>
           <label class="btn btn-outline-danger" for="hard">Hard</label>
         </div>
       </div>
